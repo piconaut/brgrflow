@@ -4,8 +4,8 @@ var width = 1280,
 var color = d3.scale.category10();
 
 var force = d3.layout.force()
-    .charge(-1500)
-    .linkDistance(80)
+    .charge((node) => {return node.source ? -800 : -0;})
+    .chargeDistance(1000)
     .size([width, height])
 
 var svg = d3.select("body").append("svg")
@@ -26,14 +26,19 @@ svg.append("defs").selectAll("marker")
     .attr("d", "M0,-5L10,0L0,5");
 
 d3.json("brgrflow.json", function(error, graph) {
+
+  var lnknodes = [];
+  graph.links.forEach(function(link) {
+    lnknodes.push({
+      source: graph.nodes[link.source],
+      target: graph.nodes[link.target]
+    });
+  });
+
   force
-      .nodes(graph.nodes)
+      .nodes(graph.nodes.concat(lnknodes))
       .links(graph.links)
       .start();
-
-  graph.links.forEach(function (d) {
-    d.group = Math.floor(Math.random() * 6)
-  });
 
   var link = svg.selectAll(".link")
       .data(graph.links)
@@ -52,6 +57,11 @@ d3.json("brgrflow.json", function(error, graph) {
        })
       .attr("marker-end", function(d) { return "url(#" + d.type + ")"; });
 
+  var linknode = svg.selectAll(".link-node")
+        .data(lnknodes)
+      .enter().append("circle")
+        .attr("class", "link-node")
+
   var node = svg.selectAll(".node")
       .data(graph.nodes)
       .enter().append("circle")
@@ -68,7 +78,7 @@ d3.json("brgrflow.json", function(error, graph) {
       .attr("class", "labels")
       .attr("class", "label")
       .attr("font-size", "10pt")
-      .attr("font-family", "Courier, monospace")
+      .attr("font-family", "Consolas, monospace")
       .attr("font-weight", "bold")
       .text(function(d) { return d.name; });
 
@@ -81,9 +91,13 @@ d3.json("brgrflow.json", function(error, graph) {
         .attr("x2", function(d) { return d.target.x; })
         .attr("y2", function(d) { return d.target.y; });
 
+    linknode.attr("cx", function(d) { return d.x = (d.source.x + d.target.x) * 0.5; })
+            .attr("cy", function(d) { return d.y = (d.source.y + d.target.y) * 0.5; });
+
     node.attr("cx", function(d) { return d.x; })
         .attr("cy", function(d) { return d.y; });
     label.attr("x", function(d) { return d.x+8; })
         .attr("y", function(d) { return d.y+3; });
+
   });
 });
