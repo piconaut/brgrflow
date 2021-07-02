@@ -1,0 +1,11 @@
+{
+  "nodes":[{"id":0,"name":"OILONPAN"},
+           {"id":1,"name":"PATTFRY1"},
+           {"id":2,"name":"PATTFLIP"},
+           {"id":3,"name":"BOTPATTY"}],
+
+  "links":[{"target":1,"source":0,"type":"EOJ"},
+           {"target":2,"source":1,"type":"EOJ"},
+           {"target":3,"source":1,"type":"EOJ"}]
+
+}
