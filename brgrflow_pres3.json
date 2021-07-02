@@ -12,6 +12,7 @@
            {"target":1,"source":0,"type":"EOJ"},
            {"target":2,"source":1,"type":"EOJ"},
            {"target":3,"source":2,"type":"EOJ"},
+           {"target":4,"source":2,"type":"WEOJ"},
            {"target":4,"source":3,"type":"WEOJ"},
            {"target":5,"source":4,"type":"EOJ"},
            {"target":5,"source":1,"type":"EOJ"},
