@@ -1,22 +1,33 @@
 {
-  "nodes":[{"id":0,"name":"OILONPAN"},
-           {"id":1,"name":"PATTFRY1"},
-           {"id":2,"name":"PATTFLIP"},
-           {"id":3,"name":"PATTCHEZ"},
-           {"id":4,"name":"PATTFRY2"},
-           {"id":5,"name":"BOTPATTY"},
-           {"id":6,"name":"FOODPREP"},
-           {"id":7,"name":"BOTMAYON"}],
+  "nodes":
+  [
+    {"id":0,"name":"OILONPAN"},
+    {"id":1,"name":"TOPMAYON"},
+    {"id":2,"name":"TOPKTCHP"},
+    {"id":3,"name":"TOPMSTRD"},
+    {"id":4,"name":"BOTPATTY"},
+    {"id":5,"name":"BOTTMTOP"},
+    {"id":6,"name":"BRGRSTRT"},
+    {"id":7,"name":"BRGRSERV"},
+    {"id":8,"name":"BOTMAYON"},
+    {"id":9,"name":"BRGRPREP"}
+  ],
 
-  "links":[{"target":0,"source":6,"type":"EOJ"},
-           {"target":1,"source":0,"type":"EOJ"},
-           {"target":2,"source":1,"type":"EOJ"},
-           {"target":3,"source":2,"type":"EOJ"},
-           {"target":4,"source":2,"type":"WEOJ"},
-           {"target":4,"source":3,"type":"WEOJ"},
-           {"target":5,"source":4,"type":"EOJ"},
-           {"target":5,"source":1,"type":"EOJ"},
-           {"target":7,"source":6,"type":"EOJ"},
-           {"target":5,"source":7,"type":"EOJ"}]
-
+  "links":
+  [
+    {"target":0,"source":6,"type":"EOJ"},
+    {"target":1,"source":6,"type":"EOJ"},
+    {"target":2,"source":6,"type":"EOJ"},
+    {"target":2,"source":1,"type":"WEOJ"},
+    {"target":3,"source":6,"type":"EOJ"},
+    {"target":3,"source":1,"type":"WEOJ"},
+    {"target":4,"source":8,"type":"WEOJ"},
+    {"target":5,"source":4,"type":"EOJ"},
+    {"target":5,"source":1,"type":"WEOJ"},
+    {"target":5,"source":2,"type":"WEOJ"},
+    {"target":5,"source":3,"type":"WEOJ"},
+    {"target":6,"source":9,"type":"EOJ"},
+    {"target":7,"source":5,"type":"EOJ"},
+    {"target":8,"source":6,"type":"EOJ"}
+    ]
 }

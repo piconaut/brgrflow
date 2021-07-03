@@ -1,11 +1,12 @@
-var width = 1280,
-    height = 640;
+var width = 1200,
+    height = 550;
 
 var color = d3.scale.category10();
 
 var force = d3.layout.force()
-    .charge((node) => {return node.source ? -1200 : -0;})
-    .chargeDistance(1600)
+.charge((node) => {return node.source ? -1200 : -800;})
+.chargeDistance(1200)
+.linkDistance(12)
     .size([width, height])
 
 var svg = d3.select("body").append("svg")

@@ -1,10 +1,10 @@
-var width = 1280,
-    height = 720;
+var width = 1200,
+    height = 550;
 
 var color = d3.scale.category10();
 
 var force = d3.layout.force()
-    .charge((node) => {return node.source ? -800 : -0;})
+    .charge((node) => {return node.source ? -1500 : -1000;})
     .chargeDistance(1000)
     .size([width, height])
 
@@ -67,7 +67,7 @@ d3.json("brgrflow_pres2.json", function(error, graph) {
       .enter().append("circle")
       .attr("class", "node")
       .attr("r", 8)
-      .style("fill", "black")
+      .style("fill", (d) => d.name == 'TOPKTCHP' ? 'red' : 'black')
       .call(force.drag);
 
 

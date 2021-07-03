@@ -16,6 +16,10 @@ p {
   font-family: Consolas,monospace;
 }
 
+h1 {
+  font-family: Consolas,monospace;
+}
+
 h2 {
   font-family: Consolas,monospace;
 }
@@ -23,29 +27,30 @@ h2 {
 </style>
 
 <body>
-  <h2>I think it'd be cool to:</h2>
+  <h1>BRGRFLOW - amy fare</h1>
+  <h2>i think it'd be cool to:</h2>
   <h2><ul>
     <li>automatically generate flow diagrams for entire applications at once<br><br>
     <li>query a specific job, its preds/succs, their preds/succs, etc. (to any degree of separation)<br><br>
     <li>explore flow by clicking on a displayed job to show its preds/succs, their preds/succs, etc.<br><br>
   </ul></h2>
-  <h2>Start with a csv EMR report from Zeke.<br>eg: how to grill a burger in 14 steps and 21 dependencies</h2>
+  <h2>start with a csv EMR report from Zeke.<br>eg: how to grill a burger in 14 steps and 23 dependencies</h2>
   <p>
     target,when<br>
-    OILONPAN,(EOJ FOODPREP)<br>
-    TOPMAYON,(EOJ FOODPREP)<br>
-    TOPKTCHP,(EOJ FOODPREP AND WEOJ TOPMAYON)<br>
-    TOPMSTRD,(EOJ FOODPREP AND WEOJ TOPMAYON)<br>
-    PATTFRY1,(EOJ OILONPAN)<br>
+    OILONPAN,(EOJ BRGRSTRT)<br>
+    TOPMAYON,(EOJ BRGRSTRT)<br>
+    TOPKTCHP,(EOJ BRGRSTRT AND WEOJ TOPMAYON)<br>
+    TOPMSTRD,(EOJ BRGRSTRT AND WEOJ TOPMAYON)<br>
+    PATTFRY1,(EOJ OILONPAN AND EOJ OILONPAN)<br>
     PATTFLIP,(EOJ PATTFRY1)<br>
     PATTCHEZ,(EOJ PATTFLIP)<br>
-    PATTFRY2,(EOJ PATTFLIP AND WEOJ PATTCHEZ)<br>
+    PATTFRY2,(EOJ PATTFLIP AND OILONPAN AND WEOJ PATTCHEZ)<br>
     BOTPATTY,(EOJ PATTFRY2 AND EOJ PATTFRY1 AND WEOJ BOTMAYON)<br>
     BOTTMTOP,(EOJ BOTPATTY AND WEOJ TOPMAYON AND WEOJ TOPKTCHP AND WEOJ TOPMSTRD)<br>
-    BRGRRQST,<br>
-    FOODPREP,(EOJ BRGRRQST)<br>
+    BRGRSTRT,(EOJ BRGRPREP)<br>
     BRGRSERV,(EOJ BOTTMTOP)<br>
-    BOTMAYON,(EOJ FOODPREP)<br>
+    BOTMAYON,(EOJ BRGRSTRT)<br>
+    BRGRPREP,
   </p>
   <h2>prev | <a href='/pres1'>next</a></h2>
 </body>

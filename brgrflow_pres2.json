@@ -1,11 +1,18 @@
 {
-  "nodes":[{"id":0,"name":"OILONPAN"},
-           {"id":1,"name":"PATTFRY1"},
-           {"id":2,"name":"PATTFLIP"},
-           {"id":3,"name":"BOTPATTY"}],
+  "nodes":
+  [
+    {"id":0,"name":"TOPMAYON"},
+    {"id":1,"name":"TOPKTCHP"},
+    {"id":2,"name":"BOTTMTOP"},
+    {"id":3,"name":"BRGRSTRT"}
+  ],
 
-  "links":[{"target":1,"source":0,"type":"EOJ"},
-           {"target":2,"source":1,"type":"EOJ"},
-           {"target":3,"source":1,"type":"EOJ"}]
-
+  "links":
+  [
+    {"target":0,"source":3,"type":"EOJ"},
+    {"target":1,"source":3,"type":"EOJ"},
+    {"target":1,"source":0,"type":"WEOJ"},
+    {"target":2,"source":0,"type":"WEOJ"},
+    {"target":2,"source":1,"type":"WEOJ"}
+    ]
 }

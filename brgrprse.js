@@ -12,9 +12,9 @@ function readcsv(fname, make, read){
   reader = fs.createReadStream(fname)
              .pipe(csv())
   reader.on('data', (row) => {
-    nodeindx[row.target] = i;
-    brgrflow.nodes.push({id: i, name: row.target});
-    whens.push({targetname: row.target,
+    nodeindx[row.jobname] = i;
+    brgrflow.nodes.push({id: i, name: row.jobname});
+    whens.push({targetname: row.jobname,
                 sourcewords: row.when.replace(/[()]/g,'').split(' ')});
     i++;
   })
